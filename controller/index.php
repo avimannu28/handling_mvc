@@ -31,15 +31,15 @@
  * This is a "Docblock Comment," also known as a "docblock."  The class'
  * docblock, below, contains a complete description of how to write these.
  */
+ require_once './controller/mvc.php';
 $page = "./view/home.php";
 if (isset($_GET['page'])) {
      $page = $_GET['page'];
      $page = "./view/" . $page . ".php";
+     $name=new mvc();
+     $data=$name->show($page);
+     
+}else{
+     include $page;
 }
 
-if (file_exists($page)) {
-     include $page;
-} else {
-     include './view/pagenotfound.php';
-}
-?>
